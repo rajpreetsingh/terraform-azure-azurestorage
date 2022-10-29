@@ -17,11 +17,11 @@ resource "azurerm_storage_account" "storage_account" {
   account_replication_type    = "LRS"
 }
 
-# resource "azurerm_storage_container" "storage_container" {
-#     name                    = "serverless"
-#     storage_account_name    = azurerm_storage_account.storage_account.name
-#     container_access_type   = "private"
-# }
+resource "azurerm_storage_container" "storage_container" {
+    name                    = "terraform"
+    storage_account_name    = azurerm_storage_account.storage_account.name
+    container_access_type   = "blob"
+}
 
 # data "azurerm_storage_account_sas" "storage_sas" {
 #     connection_string = azurerm_storage_account.storage_account.primary_connection_string
